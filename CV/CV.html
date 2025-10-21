@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin Zarfl - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            background-color: #e8e8e8;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 48px;
+            font-weight: 300;
+            color: #ad4305;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon {
+            color: #ad4305;
+            font-weight: bold;
+        }
+
+        /* Professional Summary */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #ad4305;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .summary-text {
+            color: #666;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Two Column Section */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .subsection-title {
+            font-size: 22px;
+            color: #ad4305;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .skills-list,
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .skills-list li,
+        .tech-list li {
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skills-list li:before,
+        .tech-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ad4305;
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 0 15px;
+            align-items: baseline;
+        }
+
+        .company {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .date {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        
+
+        .job-description ul {
+            margin-left: 20px;
+            list-style: none;
+        }
+
+        .job-description li {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-description ul {
+            margin-left: 20px;
+            list-style: none;
+        }
+
+        .job-description li {
+            padding-left: 20px;
+            position: relative;
+            color: #333;
+        }
+
+        .job-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ad4305;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #fff;
+            border-radius: 3px;
+            font-size: 14px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .technologies {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .technologies-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Education */
+        .education-item {
+            align-items: baseline;
+            gap: 15px;
+            display: flex
+        }
+
+        .degree {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                margin: 0;
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="profile_picture.jpg" alt="Martin Zarfl" class="profile-image">
+            <div class="header-info">
+                <h1 class="name">Martin Zarfl</h1>
+                <p class="title">Senior Software Engineer & Architect</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon">📧</span>
+                        <a href="mailto:martin@baudner-zarfl.com">martin@baudner-zarfl.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="LI-In-Bug.png" alt="LinkedIn" style="width: 16px; height: 16px;">
+                        <a href="https://linkedin.com/in/martin-zarfl" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <span>+43 676 3572426</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <span>Innsbruck, Österreich</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2 class="section-title">Über Mich</h2>
+            <!-- <p class="summary-text">
+                Senior Software Engineer & Tech Lead mit 6+ Jahren Erfahrung in Backend-Architektur, Team-Leadership und
+                Performance-Optimierung. Spezialisiert auf FinTech-Produkte mit nachweislichen Erfolgen: Migration von
+                100k+ Nutzern, 50% schnellere Response-Times, PSD2/SCA-Compliance-Implementierung. Expertise in
+                TypeScript/Node.js, PostgreSQL und AWS. Erfahrung im Management remote arbeitender Teams über 4+ Länder.
+            </p> -->
+            <p class="summary-text">
+                Senior Backend Engineer & Tech Lead mit 6+ Jahren Erfahrung in FinTech-Produkten und skalierbaren
+                Architekturen. Spezialisiert auf TypeScript/Node.js, PostgreSQL, AWS und Banking-Compliance (PSD2/SCA).
+                Erfahrung im Management remote arbeitender Teams über 4+ Länder.
+            </p>
+        </div>
+
+        <!-- Skills and Technologies -->
+        <div class="section">
+            <div class="two-column">
+                <div>
+                    <h3 class="subsection-title">Kernkompetenzen</h3>
+                    <ul class="skills-list">
+                        <li><strong>Backend-Architektur & Design</strong><br>Skalierbare Systeme, Microservices,
+                            API-Design</li>
+                        <li><strong>Tech Leadership</strong><br>Remote-Teams (bis 5 Engineers), Mentoring, Code Reviews
+                        </li>
+                        <li><strong>Performance-Optimierung</strong><br>DB-Tuning, Query-Optimierung, Bottleneck-Analyse
+                        </li>
+                        <li><strong>FinTech & Compliance</strong><br>PSD2, SCA, EBICS, Banking-Integration</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="subsection-title">Technologien</h3>
+                    <h4>Backend</h4>
+                    <ul class="tech-list">
+                        <li>TypeScript</li>
+                        <li>Node.js & Express</li>
+                        <li>Nest.js</li>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>FastApi</li>
+                    </ul>
+                    <h4>Datenbanken & Cloud</h4>
+                    <ul class="tech-list">
+                        <li>PostgreSQL</li>
+                        <li>AWS</li>
+                        <li>Heroku</li>
+                    </ul>
+                    <h4>Frontend & Tools</h4>
+                    <ul class="tech-list">
+                        <li>React Native</li>
+                        <li>React</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">Erfahrung</h2>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Engineering Lead</div>
+                    <div class="company">Monkee GmbH - FinTech Savings App</div>
+                </div>
+                <div class="job-meta">    
+                    <div class="date">2021–2025</div>
+                    <div class="date">Remote</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Banking-Migration:</strong> Vollständige Migration von E-Wallet zu regulierter Bank
+                        inkl. EBICS-Integration und Strong Customer Authentication (PSD2-Compliance)</li>
+                    <li><strong>Performance:</strong> DB-Redesign führte zu 50% schnelleren Response-Times</li>
+                    <li><strong>Kreditkarten-Integration:</strong> Planung und Backend-Implementierung einer Kreditkarte
+                        als neue Zahlungsoption</li>
+                    <li><strong>Business-Pivot:</strong> Geschäftsmodell-Migration von Abo zu Affiliate in nur 8 Wochen
+                        realisiert</li>
+                    <li><strong>Team-Leadership:</strong> Management eines internationalen remote Teams über AT, PL, FR,
+                        RS</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> TypeScript, Node.js, Express, Nest.js, PostgreSQL,
+                    React Native, AWS, Heroku</div>
+            </div>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Freiberuflicher Software Engineer</div>
+                    <div class="company">emergo technologies GmbH</div>
+                </div>
+                <div class="job-meta">
+                    <div class="date">2025</div>
+                    <div class="date">Dauer: 50h</div>
+                    <div class="date">Innsbruck, Österreich </div>
+                </div>
+                <ul>
+                    <li><strong>Backend-Service:</strong> Entwicklung eines Services zur Konsolidierung von Rohdaten
+                        für Power BI Visualisierungen</li>
+                    <li><strong>API-Design:</strong> RESTful API für Daten-Aggregation und -Export</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Python, FastAPI, PostgreSQL, Microsoft Power BI
+                </div>
+            </div>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Freiberuflicher Software Engineer</div>
+                    <div class="company">Carevallo</div>
+                </div>
+                <div class="job-meta">
+                    <div class="date">2020–Heute</div>
+                    <div class="date">Dauer: 400h</div>
+                    <div class="date">Remote</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Datenimport:</strong> Automatisierte Verarbeitung von Fragebogen-Daten</li>
+                    <li><strong>Optimierungsalgorithmus:</strong> Entwicklung eines Algorithmus zur Berechnung optimaler
+                        Zusammensetzungen basierend auf Datenbank-Inputs</li>
+                    <li><strong>Web-Interface:</strong> Vollständige Frontend- und Backend-Implementierung</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Python, Django, PostgreSQL, HTML/CSS, Heroku, AWS
+                </div>
+            </div>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Software Engineer</div>
+                    <div class="company">Monkee</div>
+                </div>
+                <div class="job-meta">    
+                    <div class="date">2019–2021</div>
+                    <div class="date">Innsbruck, Österreich</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>PSD2-Anbindung:</strong> Implementierung Python-Service für PSD2-Provider-Integration
+                    </li>
+                    <li><strong>Conversion-Erfolg:</strong> Bank-Account-Connect-Feature mit 2x höherer Conversion-Rate
+                        als zuvor</li>
+                    <li><strong>Payment-Flows:</strong> Redesign und Implementierung von Zahlungs-, Auszahlungs- und
+                        Disputeprozessen</li>
+                    <li><strong>Performance-Monitoring:</strong> Identifikation und Lösung mehrerer DB-Query- und
+                        Tabellendesign-Probleme mit signifikanter Performance-Verbesserung</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> TypeScript, Node.js, Express, Python, PostgreSQL,
+                    React Native, AWS, Heroku</div>
+            </div>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Business Intelligence Engineer</div>
+                    <div class="company">Amazon</div>
+                </div>
+                <div class="job-meta">
+                    <div class="date">2018–2019</div>
+                    <div class="date">München, Deutschland</div>
+                </div>
+                Algorithmen für Out-of-Stock-Ursachen, Ticket-Automatisierung, Produktökonomie-Analysen
+                <div class="tech-stack"><strong>Tech Stack:</strong> Python, PostgreSQL, Spark SQL, AWS, Excel</div>
+            </div>
+
+            <div class="job-description">
+                <div class="job-meta">
+                    <div class="job-title">Supply Chain Analyst</div>
+                    <div class="company">Swarovski</div>
+                </div>
+                <div class="job-meta">   
+                    <div class="date">2015–2018</div>
+                    <div class="date">Wattens, Österreich</div>
+                </div>
+                Ersatz Excel-basierter Prognosen durch R-Lösung, Lagerstandort-Simulation (30% Kostenreduktion)
+                <div class="tech-stack"><strong>Tech Stack:</strong> Python, R, Excel</div>
+            </div>
+
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">Ausbildung</h2>
+            <div class="education-item">
+                <div class="degree">Bachelor of Science in Mathematik</div>
+                <div class="university">Universität Innsbruck, Österreich</div>
+                <div class="date">Abschluss: 2018</div>
+            </div>
+            <p>
+                <strong>Forschungsprojekt: </strong> Räumliche und zeitliche Modellierung von Bewegungsmustern mittels
+                Lévy Flights und Brownscher Bewegung (MATLAB, C)
+            </p>
+        </div>
+
+        <!-- Sprachen -->
+        <div class="section">
+            <h2 class="section-title">Sprachen</h2>
+            <div class="two-column">
+                <div>
+                    <strong>Deutsch:</strong> Muttersprache
+                </div>
+                <div>
+                    <strong>Englisch: </strong> Fließend (C1/C2)
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Interessen -->
+        <!-- <div class="section">
+            <h2 class="section-title">Interessen</h2>
+            <p class="summary-text">
+                Ich bin gerne in der Natur unterwegs und gehe Kajakfahren, Radfahren oder Wandern.
+            </p>
+        </div> -->
+    </div>
+</body>
+
+</html>
